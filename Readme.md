@@ -27,8 +27,8 @@ Prior to class, try to do the following. Show up early if you're having trouble!
 
 ## Python App: "python_citation_sankeys"
 
-This app connects to a specific Airtable.
-(I will provide keys in class)
+This app connects to a specific Airtable: https://airtable.com/invite/l?inviteId=invjv5uAHuO6FiMYo&inviteToken=b74071af24bdf6104c8fe779e3fd4c0e734b15f9217b4ee0bf91477b438cc5f9
+(I will provide API keys in class)
 
 * Downloads the two data tables (sources (nodes) and citations (edges))
 * Parses the authors, privileging one author, whose citations we are tracking (Michel Foucault)
