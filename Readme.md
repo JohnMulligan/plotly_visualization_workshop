@@ -7,14 +7,14 @@ Prior to class, try to do the following. Show up early if you're having trouble!
 1. Install R
 	1. R installation instructions: 
 	1. Try to install these packages:
-		1. install.packages('lifecycle')
-		1. install.packages('remotes')
-		1. install.packages('surveillance')
-		1. install.packages('plyr')
-		1. install.packages('dash')
-		1. install.packages('tidyr')
-		1. install.packages('readr')
-		1. install.packages('plotly')
+		1. `install.packages('lifecycle')`
+		1. `install.packages('remotes')`
+		1. `install.packages('surveillance')`
+		1. `install.packages('plyr')`
+		1. `install.packages('dash')`
+		1. `install.packages('tidyr')`
+		1. `install.packages('readr')`
+		1. `install.packages('plotly')`
 1. Install Python 3
 	1. Install virtual environments: https://docs.python.org/3/library/venv.html
 	1. Try to do the following (we'll try to catch you up in class if you can't)
