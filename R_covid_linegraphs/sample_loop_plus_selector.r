@@ -121,7 +121,6 @@ app$callback(
 		)
 
 		result<-fig
-		results<-fig
 	}
 )
 
