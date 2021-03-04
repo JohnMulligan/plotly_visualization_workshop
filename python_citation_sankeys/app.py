@@ -1,16 +1,17 @@
 import os
-
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import sankey_airtable_citations as SA
 import plotly.graph_objects as go
+
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 server = app.server
 
+port=int(os.environ.get("PORT",5000))
 
 app.layout = html.Div([
     dcc.Slider(id='threshold',min=1,max=15,step=1,value=8),
@@ -38,4 +39,4 @@ def display_value(value):
     return fig
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+	app.run_server(host='0.0.0.0', port=port, debug=True)

@@ -10,7 +10,7 @@ It also contains Dockerfiles for building the environment for local and remote d
 
 This is based on the remote Heroku deployment for consistency and predictability
 
-1. You must have docker installed, of course! I use Docker Desktop: https://docs.docker.com/desktop/
+1. You must have docker installed, of course!
 1. The local deployment dockerfile is "Dockerfile-local". I'd recommend reading it before you deploy.
 1. *BUILD* by specifying that file with -f, and I'd recommend tagging it as well, e.g.
 	1. `docker build -f Dockerfile-local -t localcovidr`
@@ -39,7 +39,8 @@ Once your local build is working well, you can easily deploy this to Heroku. Muc
 
 It depends on you having Heroku CLI installed and an account set up: https://devcenter.heroku.com/articles/git
 
-`heroku create --stack container my-dash-app # change my-dash-app to a unique name
+`git init
+heroku create --stack container my-dash-app # change my-dash-app to a unique name
 git add . # add all files to git
 git commit -m 'Initial app boilerplate'
 git push heroku master # deploy code to Heroku

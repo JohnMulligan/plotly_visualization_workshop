@@ -1,33 +1,25 @@
 # Plotly Visualization Workshop
 
-This repo contains one two apps, (nearly!) ready for deployment on Heroku in Plotly.
+This repo contains two apps ready for deployment on Heroku in Plotly. Prerequisites:
 
-Prior to class, try to do the following. Show up early if you're having trouble!
-1. Download this repo: `git clone https://github.com/JohnMulligan/plotly_visualization_workshop`
-1. Install R
-	1. R installation instructions: 
-	1. Try to install these packages:
-		1. `install.packages('lifecycle')`
-		1. `install.packages('remotes')`
-		1. `install.packages('surveillance')`
-		1. `install.packages('plyr')`
-		1. `install.packages('dash')`
-		1. `install.packages('tidyr')`
-		1. `install.packages('readr')`
-		1. `install.packages('plotly')`
-1. Install Python 3
-	1. Install virtual environments: https://docs.python.org/3/library/venv.html
-	1. Try to do the following (we'll try to catch you up in class if you can't)
-		1. Start a virtual environment in the python app folder:
-			1. `cd python_citation_sankeys`
-			1. `python3 -m venv venv`
-			1. `source venv/bin/activate`
-			1. `pip3 install -r requirements.txt`
-1. Get a heroku account: https://dashboard.heroku.com/
+1. Python
+	1. Version 3.x: https://www.python.org/downloads/
+	1. Python Virtual Environments: https://docs.python.org/3/library/venv.html
+	1. Python Pip: https://pypi.org/project/pip/
+1. Heroku
+	1. Heroku Account: Get a heroku account: https://dashboard.heroku.com/
+	1. Heroku CLI: https://devcenter.heroku.com/articles/heroku-cli
+1. Docker. I use Docker Desktop: https://docs.docker.com/desktop/
+1. Git. https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+1. An Airtable Account.
+	1. The Python App uses a very specific Airtable: https://airtable.com/invite/l?inviteId=invjv5uAHuO6FiMYo&inviteToken=b74071af24bdf6104c8fe779e3fd4c0e734b15f9217b4ee0bf91477b438cc5f9
+	1. You'll want to copy that base to your own account and create an API key: https://support.airtable.com/hc/en-us/articles/360056249614
+
+
 
 ## Python App: "python_citation_sankeys"
 
-This app connects to a specific Airtable: https://airtable.com/invite/l?inviteId=invjv5uAHuO6FiMYo&inviteToken=b74071af24bdf6104c8fe779e3fd4c0e734b15f9217b4ee0bf91477b438cc5f9
+This app connects to a specific Airtable: 
 (I will provide API keys in class)
 
 * Downloads the two data tables (sources (nodes) and citations (edges))
