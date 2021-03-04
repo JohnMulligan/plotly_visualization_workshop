@@ -39,22 +39,18 @@ Once your local build is working well, you can easily deploy this to Heroku. Muc
 
 It depends on you having Heroku CLI installed and an account set up: https://devcenter.heroku.com/articles/git
 
-	`
 	git init
 	heroku create --stack container my-dash-app # change my-dash-app to a unique name
 	git add . # add all files to git
 	git commit -m 'Initial app boilerplate'
 	git push heroku master # deploy code to Heroku
 	heroku ps:scale web=1  # run the app with one Heroku 'dyno'
-	`
 
 You should be able to access your app at https://my-dash-app.herokuapp.com (changing my-dash-app to the name of your app).
 
 To update and redeploy:
 
-	`
 	git status # view the changes
 	git add .  # add all the changes
 	git commit -m 'a description of the changes'
 	git push heroku master
-	`
