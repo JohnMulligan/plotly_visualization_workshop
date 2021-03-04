@@ -27,12 +27,14 @@ This repo contains a Python app that:
 
 We use the one-line Procfile included here and simply push to heroku
 
-```git init
-heroku create APP_NAME_HERE
-git add .
-git commit -m "init"
-git push heroku master
-heroku ps:scale web=1```
+	`
+	git init
+	heroku create APP_NAME_HERE
+	git add .
+	git commit -m "init"
+	git push heroku master
+	heroku ps:scale web=1
+	`
 
 # With Docker
 
