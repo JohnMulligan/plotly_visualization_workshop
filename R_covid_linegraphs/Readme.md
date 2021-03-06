@@ -10,28 +10,32 @@ It also contains Dockerfiles for building the environment for local and remote d
 
 This is based on the remote Heroku deployment for consistency and predictability
 
-1. You must have docker installed, of course!
-1. The local deployment dockerfile is "Dockerfile-local". I'd recommend reading it before you deploy.
-1. *BUILD* by specifying that file with -f, and I'd recommend tagging it as well, e.g.
-	1. `docker build -f Dockerfile-local -t localcovidr`
-	1. That will build an image tagged as localcovidrj using the instructions in Dockerfile-local
-1. Building efficiently:
-	1. The first build will take a while (10 minutes on my macbook). It's constructing a special R environment tuned for deployment on Heroku.
-	1. However:
-		1. *if all you're changing is the R app or lines in Dockerfile-local before line 15 ("from base as build")*
-		1. then: subsequent builds will go very quickly (~30 seconds for me) because I've made that R environment into a base image.
-	
-1. *RUN* by specifying the host and port to bind the service to. I'd recommend naming the container as well, e.g.:
-	1. `docker run -d -p 0.0.0.0:8050:8050 localcovidr`
-	1. This will
-		1. launch the image in background (-d flag)
-		1. tag it as "localcovidr"
-		1. which you can access in your browser at 0.0.0.0:8050
-1. Now run docker ps
-1. You will see a container with a random name running your image
-1. *STOP* by running `docker stop RANDOM_CONTAINER_NAME`
+USE 2 TERMINAL WINDOWS:
 
-As you can see on Dockerfile-local, this is launching farrington_bystate_dash.R. You can swap out any of the other scripts here, such as sample.r
+#### *BUILD* by specifying the local build file: `docker build -f Dockerfile-local .`
+
+#### *RUN* by specifying the host and port to bind the service to.
+	1. `docker run -p 0.0.0.0:8050:8050`
+	1. access in your browser at 0.0.0.0:8050
+	1. Now run docker ps
+	1. You will see a container with a random name running your image
+
+#### *STOP* by:
+	1. open a second terminal window
+	1. type `docker ps` and see your running container ID's
+	1. stop with `docker stop CONTAINER_ID`
+
+#### *REBUILD* by:
+	1. Changing some of your code
+	1. Running the build command again: `docker build -f Dockerfile-local .`
+	1. Rebuilds are fast, but they take up a lot of space:
+
+#### *CLEAN UP* every once in a while with:
+	1. `docker images` to see your stopped image ID's
+	1. `docker image rm -f IMAGE_ID`
+
+Note: deleting *all* of your stopped containers for this app will make your next rebuild slow.
+
 
 ### Remote Deployment
 

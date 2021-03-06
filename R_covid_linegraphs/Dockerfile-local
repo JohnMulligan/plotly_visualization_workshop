@@ -18,4 +18,4 @@ COPY . /app/
 
 EXPOSE 8050
 
-CMD /usr/bin/R -f /app/sample_loop_plus_selector.R
+CMD /usr/bin/R -f /app/sample_loop_plus_selector.r

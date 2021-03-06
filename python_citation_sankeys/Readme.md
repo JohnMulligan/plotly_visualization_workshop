@@ -21,6 +21,7 @@ This repo contains a Python app that:
 	1. `python3 -m venv venv`
 	1. `source venv/bin/activate`
 1. Install the requirements into the virtual environment: `pip3 install -r requirements.txt`
+1. GET YOUR AIRTABLE API KEYS!! SEE THE TOP OF THIS DOC.
 1. Run the app: `python3 app.py`
 
 ## Deploying remotely (requires Heroku CLI)
@@ -41,8 +42,12 @@ We use the one-line Procfile included here and simply push to heroku
 1. `docker build .`
 1. Get built docker image id with `docker images`
 1. Launch container with `docker run -p 0.0.0.0:5000:5000 IMAGE_ID`
-1. Get docker container with docker ps
+1. Get docker container with `docker ps`
 1. Stop container with `docker stop CONTAINER_ID`
+1. Rebuild with `docker build .`
+1. Clean up with:
+	1. `docker images` to get image ID's
+	1. `docker image rm -f IMAGE_ID`
 
 ## Remotely (Requires Heroku CLI)
 

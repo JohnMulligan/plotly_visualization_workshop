@@ -168,7 +168,7 @@ app$callback(
 		wb<-wb
 		w<-w
 		excess_measure<-excess_measure
-		source("excess_figures.R",local=TRUE)
+		source("excess_figures.r",local=TRUE)
 		result<-fig
 		results<-fig
 	}
