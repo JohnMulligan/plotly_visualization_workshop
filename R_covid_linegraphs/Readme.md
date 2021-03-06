@@ -22,7 +22,8 @@ This is based on the remote Heroku deployment for consistency and predictability
 
 USE 2 TERMINAL WINDOWS:
 
-### *BUILD* by specifying the local build file: `docker build -f Dockerfile-local .`
+### *BUILD* by specifying the local build file:
+`docker build -f Dockerfile-local .`
 
 ### *RUN* by specifying the host and port to bind the service to.
 1. `docker run -p 0.0.0.0:8050:8050`
