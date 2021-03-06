@@ -6,7 +6,7 @@ This repo contains two apps ready for deployment in Docker, locally and to Herok
 
 1. Docker. https://docs.docker.com/desktop/
 1. Git. https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
-1. An Airtable Account.
+1. An Airtable Account. https://airtable.com/
 1. Heroku. https://devcenter.heroku.com/articles/heroku-cli
 
 ## Python App: "python_citation_sankeys"
