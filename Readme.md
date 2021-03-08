@@ -26,4 +26,4 @@ This contains 3 apps that parse a large csv (~50MB) from the CDC: https://data.c
 	* sample.r displays weekly mortality by for one cause, state, and year
 	* sample_withloop.r -- by multiple years for one cause and state
 	* sample_loop_plus_selector.r -- by multiple years with state, cause, & count type selectors
-* 1 better-developed app with lots of callbacks: farrington_bystate_dash.R
+* 1 better-developed app with lots of callbacks: excess_mortality.R

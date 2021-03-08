@@ -11,7 +11,6 @@
               # packages go here
               install.packages('lifecycle')
               install.packages('remotes')
-              install.packages('surveillance')
               install.packages('plyr')
               install.packages('dash')
               install.packages('tidyr')

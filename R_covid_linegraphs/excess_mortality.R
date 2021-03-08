@@ -2,8 +2,6 @@ library(plotly)
 library(dash)
 library(dashCoreComponents)
 library(dashHtmlComponents)
-
-library('surveillance')
 library(readr)
 library(tidyr)
 library(dplyr)
@@ -67,7 +65,6 @@ for(i in 1:4){yearsback_sliderlabels[[i]]<-as.character(i-1)}
 
 
 
-
 app$layout(
 	htmlDiv(list(
 
@@ -97,52 +94,55 @@ app$layout(
                                 id = 'weighted_radio',
                                 options = weighted_radio_opts,
                                 value = "Unweighted"
-                        ),
-                        htmlLabel('Measure of Excess'),
-                        dccRadioItems(
-                                id = 'excess_radio',
-                                options = excess_radio_opts,
-                                value = 'Farrington'
-                        )
+                        		),
+                        htmlLabel('Graph Type'),
+						dccDropdown(
+							id = 'graph_type',
+							options = list(
+									list('label'='Stacked Lines','value'='stackedlines'),
+									list('label'='Stacked Bars','value'='stackedbars')									),
+							value = 'stackedlines'
+							)  
                 ),style=list('columnCount'=2,'width'='100%','marginTop'=15,'marginBottom'=15)
-        ),
-	htmlDiv(
-		list(
-                        htmlLabel('Base Trendline on # Years of Previous Data'),
-                        dccSlider(
-                                id = 'yearsback_slider',
-                                min = 1,
-                                max = 3,
-                                marks = yearsback_sliderlabels,
-                                value = 3,
-				included= FALSE
-                        )
-
-                ),style=list('width'='90%','marginTop'=15,'marginBottom'=15)
         )
-	
 	))
 )
 
+        
 app$callback(
 	output = list(id='fizz',property='figure'),
 	params = list(
 		input(id='cause_dropdown',property='value'),
 		input(id='jurisdiction_dropdown',property='value'),
 		input(id='weighted_radio',property='value'),
-		input(id='yearsback_slider',property='value'),
-		input(id='excess_radio',property='value')
+		input(id='graph_type',property='value')
 	),
-	function(cause,jurisdiction,weighted,b,excess_measure) {
-		cause<-cause
-		jurisdiction<-jurisdiction
-		weighted<-weighted
-		b<-b
-		w<-w
-		excess_measure<-excess_measure
-		source("excess_figures.R",local=TRUE)
-		result<-fig
-		results<-fig
+	function(cause,jurisdiction,weighted,graph_type) {
+
+		result = tryCatch({
+
+			cause<-cause
+			jurisdiction<-jurisdiction
+			weighted<-weighted
+		
+			
+				source("excess_stacked.R",local=TRUE)
+				result<-fig
+			
+
+		}, error = function(e) {
+				print("ERROR ERROR ERROR")
+				list(
+					layout=list(
+						title="DATA TOO SPARSE TO RENDER GRAPH WITH THESE SPECIFIC PARAMETERS",
+						xaxis=list('title'='Week Ending Date'),
+						yaxis=list('title'='Deaths'),
+						paper_bgcolor = '#c3d1e8'
+					),
+					data = list()
+				)
+		})
+
 	}
 )
 

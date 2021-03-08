@@ -2,19 +2,17 @@
 
 This repo contains 3 builds of a Plotly app in R for quantifying covid-related mortality.
 
-It also contains Dockerfiles for building the environment for local and remote deployment.
+It also contains a Dockerfile for building the environment for local and remote deployment.
 
 ## Data and Apps
 
 These apps parse a large csv (~50MB) from the CDC: https://data.cdc.gov/NCHS/Weekly-counts-of-death-by-jurisdiction-and-cause-o/u6jv-9ijr/
 
 * 3 sample apps
-	* sample.r displays weekly mortality by for one cause, state, and year
-	* sample_withloop.r -- by multiple years for one cause and state
-	* sample_loop_plus_selector.r -- by multiple years with state, cause, & count type selectors
-* 1 production-ready app: farrington_bystate_dash.r
-
-----------------------
+	* sample.R displays weekly mortality by for one cause, state, and year
+	* sample_withloop.R -- by multiple years for one cause and state
+	* sample_loop_plus_selector.R -- by multiple years with state, cause, & count type selectors
+* 1 production-ready app: excess_mortality.R, which draws on excess_stacked.R to do the calculation and graph formatting
 
 ## Local Deployment
 
@@ -22,8 +20,8 @@ This is based on the remote Heroku deployment for consistency and predictability
 
 USE 2 TERMINAL WINDOWS:
 
-### *BUILD* by specifying the local build file:
-`docker build -f Dockerfile-local .`
+### *BUILD* with:
+`docker build .`
 
 ### *RUN* by specifying the host and port to bind the service to.
 1. `docker run -p 0.0.0.0:8050:8050`
@@ -31,23 +29,21 @@ USE 2 TERMINAL WINDOWS:
 1. Now run docker ps
 1. You will see a container with a random name running your image
 
-### *STOP* by:
+### to *STOP*:
 1. open a second terminal window
 1. type `docker ps` and see your running container ID's
 1. stop with `docker stop CONTAINER_ID`
 
-### *REBUILD* by:
+### *REBUILD* with:
 1. Changing some of your code
-1. Running the build command again: `docker build -f Dockerfile-local .`
-1. Rebuilds are fast, but they take up a lot of space:
+1. Running the build command again: `docker build .`
+1. Rebuilds are fast, but the duplicate containers quickly take up a lot of space:
 
 ### *CLEAN UP* every once in a while with:
 1. `docker images` to see your stopped image ID's
 1. `docker image rm -f IMAGE_ID`
 
-Note: deleting *all* of your stopped containers for this app will make your next rebuild slow.
-
----------------------
+Note: deleting *all* of your images for this app will make your next rebuild slow.
 
 ## Remote Deployment
 
@@ -55,7 +51,6 @@ Once your local build is working well, you can easily deploy this to Heroku. Muc
 
 It depends on you having Heroku CLI installed and an account set up: https://devcenter.heroku.com/articles/git
 
-	git init
 	heroku create --stack container my-dash-app # change my-dash-app to a unique name
 	git add . # add all files to git
 	git commit -m 'Initial app boilerplate'
@@ -70,3 +65,7 @@ To update and redeploy:
 	git add .  # add all the changes
 	git commit -m 'a description of the changes'
 	git push heroku master
+
+
+![dash1](https://raw.githubusercontent.com/JohnMulligan/covid_dashR/master/Screen%20Shot%202021-01-10%20at%209.36.38%20PM.png)
+
