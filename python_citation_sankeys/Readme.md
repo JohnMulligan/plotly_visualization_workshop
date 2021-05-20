@@ -1,16 +1,17 @@
 *NOTE!* This won't run without API access to the table.
-1. Get a copy of the base from https://airtable.com/invite/l?inviteId=invjv5uAHuO6FiMYo&inviteToken=b74071af24bdf6104c8fe779e3fd4c0e734b15f9217b4ee0bf91477b438cc5f9
-1. Get an airtable API key and base ID: https://support.airtable.com/hc/en-us/articles/360056249614
+1. Get a copy of the base from https://airtable.com/invite/l?inviteId=invcSCxZRdNJErGrK&inviteToken=b74b70e33e12b862900721468ac80bb1eb863b2da5e29c3998ff728adc7c86d5
+1. Get an airtable API key and base ID: https://airtable.com/account
 1. Fill in the details in the file airtablekeys.json
+1. You can see API examples/documentation that you can nearly copy and paste in this interface: https://airtable.com/api
 
 # Dash Sankey from Airtable
 
 This repo contains a Python app that:
-1. Pulls entries from a specific airtable: https://airtable.com/tblv95c9K2woWnWDF/viwJu67h36bsF6LtT?blocks=hide
+1. Pulls entries from the specific airtable linked above
 1. Rolls them up into cited authors & their works
 1. Renders these as a Sankey diagram in Dash
 
-*Instructions on installing this application locally and on heroku, dockerized or with virtualenvironments, follow*
+*Instructions on installing this application locally and on heroku, dockerized or with virtualenvironments, follow* 
 
 # With Docker
 
@@ -27,6 +28,10 @@ This repo contains a Python app that:
 	1. `docker image rm -f IMAGE_ID`
 
 ## Remotely (Requires Heroku CLI)
+
+Template for Dockerized Python Dash application deployed to Heroku: https://dash.plotly.com/deployment
+
+Git instructions at https://devcenter.heroku.com/articles/git
 
 1. `heroku container:login`
 1. `heroku create UNIQUEAPPNAME`

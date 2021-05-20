@@ -32,11 +32,11 @@ def fetch_table_records(base_id,table,auth):
 	while True:
 	
 		url = 'https://api.airtable.com/v0/%s/%s' %(base_id,table)
-	
+		print(url)
 		params={'offset':offset}
 	
 		response = requests.get(url,auth=auth,params=params)
-	
+		print(response)
 		results = json.loads(response.text)
 	
 		new_records=results['records']
