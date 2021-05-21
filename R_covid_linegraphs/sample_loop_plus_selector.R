@@ -43,7 +43,6 @@ for(i in jurisdictions){
 
 print(weighted_radio_opts)
 print(jurisdiction_dropdown_opts)
-fig <- plot_ly()
 
 app$layout(
 htmlDiv(list(
