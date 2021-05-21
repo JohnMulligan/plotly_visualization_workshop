@@ -55,6 +55,8 @@ Git instructions at https://devcenter.heroku.com/articles/git
 
 We use the one-line Procfile included here and simply push to heroku
 
+*NOTE. MOVE THIS DIRECTORY OUT OF THE PARENT WORKSHOP DIRECTORY OR THIS WILL GOOF UP THE BELOW GIT COMMANDS*
+
 	git init
 	heroku create APP_NAME_HERE
 	git add .

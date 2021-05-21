@@ -21,8 +21,6 @@ years<-unique(counts$Year)
 
 #https://plotly.com/python/line-charts/
 
-fig <- plot_ly()
-
 for(year in years){
 print(year)
 

@@ -9,7 +9,8 @@ library(dplyr)
 #jurisdiction<-"Texas"
 #cause<-"Diabetes"
 #weighted<-"Unweighted"
-fig <- plot_ly()
+
+counts <- read_csv("Weekly_counts_of_death_by_jurisdiction_and_cause_of_death.csv")
 
 observed <- filter(counts,`Type`==weighted,`Jurisdiction`==jurisdiction,`Cause Subgroup`==cause,`Year`>=2020)
 observed <- observed %>% select(`Number of Deaths`,`Week`,`Week Ending Date`,`Year`)

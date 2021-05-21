@@ -51,9 +51,11 @@ Once your local build is working well, you can easily deploy this to Heroku. Muc
 
 It depends on you having Heroku CLI installed and an account set up: https://devcenter.heroku.com/articles/git
 
+*NOTE. MOVE THIS DIRECTORY OUT OF THE PARENT WORKSHOP DIRECTORY FIRST, OR IT WILL GOOF UP THE BELOW GIT COMMANDS*
+
 	heroku create --stack container my-dash-app # change my-dash-app to a unique name
 	git add . # add all files to git
-	git commit -m 'Initial app boilerplate'
+	git commit -m 'Initial app boilerplate'		
 	git push heroku master # deploy code to Heroku
 	heroku ps:scale web=1  # run the app with one Heroku 'dyno'
 
