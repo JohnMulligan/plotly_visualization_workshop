@@ -57,7 +57,7 @@ It depends on you having Heroku CLI installed and an account set up: https://dev
 	git add . # add all files to git
 	git commit -m 'Initial app boilerplate'		
 	git push heroku master # deploy code to Heroku
-	heroku ps:scale web=1  # run the app with one Heroku 'dyno'
+	heroku ps:scale web=1  # runs the app after it's built
 
 You should be able to access your app at https://my-dash-app.herokuapp.com (changing my-dash-app to the name of your app).
 
