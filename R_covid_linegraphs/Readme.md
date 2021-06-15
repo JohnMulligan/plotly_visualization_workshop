@@ -23,8 +23,9 @@ USE 2 TERMINAL WINDOWS:
 ### *BUILD* with:
 `docker build .`
 
-### *RUN* by specifying the host and port to bind the service to.
-1. `docker run -p 0.0.0.0:8050:8050`
+### *RUN* by getting your image id, then specifying the host and port to bind the service to.
+1. docker images --> then copy IMAGEID
+1. `docker run -p 0.0.0.0:8050:8050` IMAGEID
 1. access in your browser at 0.0.0.0:8050
 1. Now run docker ps
 1. You will see a container with a random name running your image
